@@ -85,9 +85,9 @@
         </a>
         <div id="othersite" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="<?= base_url('coin-list/bitcoin') ?>">PTC</a>
-            <a class="collapse-item" href="<?= base_url('coin-list/bitcoin_cash') ?>">Exchanges</a>
-            <a class="collapse-item" href="<?= base_url('coin-list/litecoin') ?>">Lottery</a>
+            <a class="collapse-item" href="<?= base_url('other-list/ptc') ?>">PTC</a>
+            <a class="collapse-item" href="<?= base_url('other-list/exchanges') ?>">Exchanges</a>
+            <a class="collapse-item" href="<?= base_url('other-list/lottery') ?>">Lottery</a>
           </div>
         </div>
       </li>
