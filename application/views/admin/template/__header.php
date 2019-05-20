@@ -75,28 +75,23 @@
       </li>
       <!-- ./Faucet Site -->
 
-      <!-- PTC Site -->
+      <!-- Other Site -->
       <hr class="sidebar-divider">
-      <div class="sidebar-heading">
-        PTC Site
-      </div>
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#ptc" aria-expanded="true" aria-controls="collapseTwo">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#othersite" aria-expanded="true" aria-controls="collapseTwo">
           <i class="fas fa-fw fa-cog"></i>
-          <span>Coin List</span>
+          <span>Other Site</span>
         </a>
-        <div id="ptc" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div id="othersite" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="<?= base_url('coin-list/bitcoin') ?>">Bitcoin</a>
-            <a class="collapse-item" href="<?= base_url('coin-list/bitcoin_cash') ?>">Bitcoin Cash</a>
-            <a class="collapse-item" href="<?= base_url('coin-list/litecoin') ?>">Litecoin</a>
-            <a class="collapse-item" href="<?= base_url('coin-list/dogecoin') ?>">Dogecoin</a>
-            <a class="collapse-item" href="<?= base_url('coin-list/blackcoin') ?>">Blackcoin</a>
+            <a class="collapse-item" href="<?= base_url('coin-list/bitcoin') ?>">PTC</a>
+            <a class="collapse-item" href="<?= base_url('coin-list/bitcoin_cash') ?>">Exchanges</a>
+            <a class="collapse-item" href="<?= base_url('coin-list/litecoin') ?>">Lottery</a>
           </div>
         </div>
       </li>
-      <!-- ./PTC Site -->
+      <!-- ./Other Site -->
 
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
