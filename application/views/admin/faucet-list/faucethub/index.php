@@ -67,7 +67,7 @@
                   <td><?= ucfirst($faucethub['status']) ?></td>
                   <td><?= ucfirst($faucethub['nama']) ?></td>
                   <td><?= strtoupper($faucethub['code_coin']) ?></td>
-                  <td><?= ucfirst($faucethub['payment']) ?></td>
+                  <td><?= $faucethub['payment'] ?></td>
                   <td><?= $faucethub['timer'] . ' Minutes' ?></td>
                   <td><?= $faucethub['withdrawal'] . ' BTC' ?></td>
                   <td align="center">
