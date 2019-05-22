@@ -22,7 +22,7 @@ class Auth extends CI_Controller {
 				$session['logged_in'] = TRUE;
 				$this->session->set_userdata($session);
 				$this->session->set_flashdata('login', 'LoginBerhasil');
-					redirect('homepage');
+					redirect('administrator/homepage');
 				} else {
 					$this->session->set_flashdata('gagal', 'LoginBerhasil');
 					redirect('auth/login');

@@ -2,6 +2,32 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class M_Database extends CI_Model {
+
+	// >COIN LIST
+	public function selectCoin() {
+		return $this->db->get('coin_list');
+	}
+
+	public function insertCoin() {
+		$data = [
+			'nama_coin'=> strtolower($this->input->post('nama_coin', TRUE)),
+			'code_coin'=> strtolower($this->input->post('code_coin', TRUE))
+		];
+		$this->db->insert('coin_list', $data);
+	}
+
+	public function deleteCoin($id) {
+		$this->db->delete('coin_list', ['id' => $id]);
+	}
+
+	public function editCoin($id) {
+		return $this->db->get_where('coin_list', ['id' => $id])->row_array();
+	}
+
+	public function updateCoin($data,$where,$table) {
+		$this->db->where($where);
+		$this->db->update($table,$data);
+	}
 	
 	// >DIRECT
 	public function selectDirect() {
@@ -72,27 +98,7 @@ class M_Database extends CI_Model {
 		$this->db->update($table,$data);
 	}
 
-	// >COIN LIST
-	public function selectCoin() {
-		return $this->db->get('coin_list');
-	}
-
-	public function insertCoin($data) {
-		$this->db->insert('coin_list', $data);
-	}
-
-	public function deleteCoin($id) {
-		$this->db->delete('coin_list', ['id' => $id]);
-	}
-
-	public function editCoin($id) {
-		return $this->db->get_where('coin_list', ['id' => $id])->row_array();
-	}
-
-	public function updateCoin($data,$where,$table) {
-		$this->db->where($where);
-		$this->db->update($table,$data);
-	}
+	
 
 
 

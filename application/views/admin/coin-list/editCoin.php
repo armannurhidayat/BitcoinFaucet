@@ -1,14 +1,14 @@
 <div class="container-fluid">
 	<div class="card shadow">
     <div class="card-header">
-      <a href="<?= base_url('coin_list') ?>">
+      <a href="<?= base_url('administrator/coin_list') ?>">
 	    	<button class="btn btn-warning btn-sm float-left"><i class="fa fa-chevron-left"></i> Back</button>
     	</a>
       <h6 class="m-0 mt-2 font-weight-bold text-primary text-right">Update Coin</h6>
     </div>
     
     <div class="card-body">
-      <form method="POST" enctype="multipart/form-data" action="<?= base_url('coin_list/update') ?>">
+      <form method="POST" enctype="multipart/form-data" action="<?= base_url('administrator/coin_list/update') ?>">
       	<div class="row">
       		<div class="col-md-5 ml-5">
       			<input type="hidden" name="id" id="id" value="<?= $coins['id'] ?>">

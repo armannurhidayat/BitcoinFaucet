@@ -1,17 +1,17 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Direct extends CI_Controller {
+class FaucetHub extends CI_Controller {
 
 	public function __construct() {
 		parent::__construct();
 	}
 
 	public function index() {
-		$data['direct']= $this->M_Database->selectDirect()->result_array();
+		$data['faucethub']= $this->M_Database->selectFaucethub()->result_array();
 		$this->load->view('admin/template/__header');
 		$this->load->view('admin/template/__nav');
-		$this->load->view('admin/faucet-list/direct/index',$data);
+		$this->load->view('admin/faucet-list/faucethub/index',$data);
 		$this->load->view('admin/template/__footer');
 	}
 
@@ -19,7 +19,7 @@ class Direct extends CI_Controller {
 		$data['coins']= $this->M_Database->selectCoin()->result_array();
 		$this->load->view('admin/template/__header');
 		$this->load->view('admin/template/__nav');
-		$this->load->view('admin/faucet-list/direct/addDirect',$data);
+		$this->load->view('admin/faucet-list/faucethub/addFaucethub',$data);
 		$this->load->view('admin/template/__footer');
 	}
 
@@ -33,18 +33,18 @@ class Direct extends CI_Controller {
 			'payment'=> $this->input->post('payment', TRUE),
 			'withdrawal'=> strtolower($this->input->post('withdrawal', TRUE))
 		];
-		$this->M_Database->insertDirect($data);
-		$this->session->set_flashdata('add','addDirect');
-		redirect('faucet-list/direct');
+		$this->M_Database->insertFaucethub($data);
+		$this->session->set_flashdata('add','addFaucethub');
+		redirect('administrator/faucet-list/faucethub');
 	}
 
 	public function form_edit($id) {
-		$data['direct'] = $this->M_Database->editDirect($id);
+		$data['faucethub'] = $this->M_Database->editFaucethub($id);
 		$data['coins']= $this->M_Database->selectCoin()->result_array();
 		$data['status'] = ['legit','testing'];
 		$this->load->view('admin/template/__header');
 		$this->load->view('admin/template/__nav');
-		$this->load->view('admin/faucet-list/direct/editDirect',$data);
+		$this->load->view('admin/faucet-list/faucethub/editFaucethub',$data);
 		$this->load->view('admin/template/__footer');
 	}
 
@@ -60,18 +60,18 @@ class Direct extends CI_Controller {
 		];
 
 		$where=[
-			'id_direct'=>$this->input->post('id_direct', TRUE)
+			'id_faucethub'=>$this->input->post('id_faucethub', TRUE)
 		];
 
-		$this->session->set_flashdata('update', 'UpdateDirect');
-		$this->M_Database->updateDirect($data,$where,'direct');
-		redirect('faucet-list/direct');
+		$this->session->set_flashdata('update', 'UpdateFaucethub');
+		$this->M_Database->updateFaucethub($data,$where,'faucethub');
+		redirect('administrator/faucet-list/faucethub');
 	}
 
 	public function delete($id) {
-		$this->M_Database->deleteDirect($id);
-		$this->session->set_flashdata('delete', 'deletDirect');
-		redirect('faucet-list/direct');
+		$this->M_Database->deleteFaucethub($id);
+		$this->session->set_flashdata('delete', 'deletFaucethub');
+		redirect('administrator/faucet-list/faucethub');
 	}
 
 

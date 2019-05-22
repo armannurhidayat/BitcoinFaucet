@@ -1,4 +1,4 @@
-<?php
+administrator/<?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Coinpot extends CI_Controller {
@@ -35,7 +35,7 @@ class Coinpot extends CI_Controller {
 		];
 		$this->M_Database->insertCoinpot($data);
 		$this->session->set_flashdata('add','addCoinpot');
-		redirect('faucet-list/coinpot');
+		redirect('administrator/faucet-list/coinpot');
 	}
 
 	public function form_edit($id) {
@@ -65,13 +65,13 @@ class Coinpot extends CI_Controller {
 
 		$this->session->set_flashdata('update', 'UpdateCoinpot');
 		$this->M_Database->updateCoinpot($data,$where,'coinpot');
-		redirect('faucet-list/coinpot');
+		redirect('administrator/faucet-list/coinpot');
 	}
 
 	public function delete($id) {
 		$this->M_Database->deleteCoinpot($id);
 		$this->session->set_flashdata('delete', 'deleteCoinpot');
-		redirect('faucet-list/coinpot');
+		redirect('administrator/faucet-list/coinpot');
 	}
 
 

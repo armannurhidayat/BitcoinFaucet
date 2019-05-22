@@ -1,14 +1,14 @@
 <div class="container-fluid">
 	<div class="card shadow">
     <div class="card-header">
-      <a href="<?= base_url('faucet-list/direct') ?>">
+      <a href="<?= base_url('administrator/faucet-list/direct') ?>">
 	    	<button class="btn btn-warning btn-sm float-left"><i class="fa fa-chevron-left"></i> Back</button>
     	</a>
       <h6 class="m-0 mt-2 font-weight-bold text-primary text-right">Update Faucet</h6>
     </div>
     
     <div class="card-body">
-      <form method="POST" action="<?= base_url('faucet-list/direct/update') ?>">
+      <form method="POST" action="<?= base_url('administrator/faucet-list/direct/update') ?>">
       	<div class="row">
       		<div class="col-md-5 ml-5">
       			<input type="hidden" name="id_direct" id="id_direct" value="<?= $direct['id_direct']?>">

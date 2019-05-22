@@ -32,7 +32,7 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= base_url() ?>">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= base_url('administrator/homepage') ?>">
         <div class="sidebar-brand-icon rotate-n-15">
           <i class="fab fa-btc"></i>
         </div>
@@ -44,13 +44,13 @@
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item">
-        <a class="nav-link" href="<?= base_url() ?>">
+        <a class="nav-link" href="<?= base_url('administrator/homepage') ?>">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="<?= base_url('coin_list') ?>">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
+        <a class="nav-link" href="<?= base_url('administrator/coin_list') ?>">
+          <i class="fas fa-coins"></i>
           <span>Coin List</span></a>
       </li>
 
@@ -62,14 +62,14 @@
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#faucetsite" aria-expanded="true" aria-controls="collapseTwo">
-          <i class="fas fa-fw fa-cog"></i>
+          <i class="fas fa-comments-dollar"></i>
           <span>Faucet Site</span>
         </a>
         <div id="faucetsite" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="<?= base_url('faucet-list/direct') ?>">Direct</a>
-            <a class="collapse-item" href="<?= base_url('faucet-list/coinpot') ?>">Coinpot</a>
-            <a class="collapse-item" href="<?= base_url('faucet-list/faucethub') ?>">FaucetHub</a>
+            <a class="collapse-item" href="<?= base_url('administrator/faucet-list/direct') ?>">Direct</a>
+            <a class="collapse-item" href="<?= base_url('administrator/faucet-list/coinpot') ?>">Coinpot</a>
+            <a class="collapse-item" href="<?= base_url('administrator/faucet-list/faucethub') ?>">FaucetHub</a>
           </div>
         </div>
       </li>
@@ -80,14 +80,14 @@
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#othersite" aria-expanded="true" aria-controls="collapseTwo">
-          <i class="fas fa-fw fa-cog"></i>
+          <i class="fas fa-comments-dollar"></i>
           <span>Other Site</span>
         </a>
         <div id="othersite" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="<?= base_url('other-list/ptc') ?>">PTC</a>
-            <a class="collapse-item" href="<?= base_url('other-list/exchanges') ?>">Exchanges</a>
-            <a class="collapse-item" href="<?= base_url('other-list/lottery') ?>">Lottery</a>
+            <a class="collapse-item" href="<?= base_url('administrator/other-list/ptc') ?>">PTC</a>
+            <a class="collapse-item" href="<?= base_url('administrator/other-list/exchanges') ?>">Exchanges</a>
+            <a class="collapse-item" href="<?= base_url('administrator/other-list/lottery') ?>">Lottery</a>
           </div>
         </div>
       </li>

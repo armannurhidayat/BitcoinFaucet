@@ -34,7 +34,7 @@
     <div class="card shadow mb-4">
       <div class="card-header py-3">
         <span class="m-0 font-weight-bold text-primary h3">Direct Faucet</span>
-          <a href="<?= base_url('faucet-list/direct/form_input')  ?>" class="btn btn-success btn-icon-split btn-sm float-right">
+          <a href="<?= base_url('administrator/faucet-list/direct/form_input')  ?>" class="btn btn-success btn-icon-split btn-sm float-right">
             <span class="icon text-white-50">
               <i class="fas fa-plus"></i>
             </span>
@@ -76,10 +76,10 @@
                     </a>
                   </td>
                   <td align="center">
-                    <a href="<?= base_url('faucet-list/direct/form_edit/' . $direct['id_direct']) ?>">
+                    <a href="<?= base_url('administrator/faucet-list/direct/form_edit/' . $direct['id_direct']) ?>">
                       <button class="btn btn-primary btn-sm"><i class="fa fa-cogs"></i></button>
                     </a>
-                    <a href="<?= base_url('faucet-list/direct/delete/' . $direct['id_direct']) ?>">
+                    <a href="<?= base_url('administrator/faucet-list/direct/delete/' . $direct['id_direct']) ?>">
                       <button class="btn btn-danger btn-sm" onclick="return confirm('Are you sure want to delete this data?')"><i class="fa fa-trash"></i></button>
                     </a>
                   </td>
