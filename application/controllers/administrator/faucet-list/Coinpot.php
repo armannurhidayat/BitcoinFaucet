@@ -55,7 +55,7 @@ class Coinpot extends CI_Controller {
 			'timer'=> strtolower($this->input->post('timer', TRUE)),
 			'link'=> strtolower($this->input->post('link', TRUE)),
 			'status'=> strtolower($this->input->post('status', TRUE)),
-			'payment'=> strtolower($this->input->post('payment', TRUE)),
+			'payment'=> $this->input->post('payment', TRUE),
 			'withdrawal'=> strtolower($this->input->post('withdrawal', TRUE))
 		];
 

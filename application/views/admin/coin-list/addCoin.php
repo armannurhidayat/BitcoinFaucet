@@ -13,7 +13,7 @@
       		<div class="col-md-5 ml-5">
           	<div class="form-group">
 					    <label for="nama_coin">Coin Name *</label>
-					    <input type="text" name="nama_coin" id="nama_coin" class="form-control" autofocus="" placeholder="Bitcoin">
+					    <input type="text" name="nama_coin" id="nama_coin" class="form-control" autofocus="" value="<?= set_value('nama_coin') ?>" placeholder="Bitcoin">
 					    <small class="form-text text-danger"><?= form_error('nama_coin'); ?></small>
 					  </div>
 					  <div class="form-group">
@@ -25,7 +25,7 @@
 				  <div class="col-md-5">
 				  	<div class="form-group">
 					  <label for="code_coin">Code Coin *</label>
-					    <input type="text" class="form-control" id="code_coin" name="code_coin" placeholder="BTC">
+					    <input type="text" class="form-control" id="code_coin" name="code_coin" value="<?= set_value('code_coin') ?>" placeholder="BTC">
 					    <small class="form-text text-danger"><?= form_error('code_coin'); ?></small>
 					  </div>
 			  	</div>
