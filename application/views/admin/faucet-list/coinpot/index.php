@@ -76,7 +76,7 @@
                     </a>
                   </td>
                   <td align="center">
-                    <a href="<?= base_url('administrator/faucet-list/coinpot/form_edit/' . $coinpot['id_coinpot']) ?>">
+                    <a href="<?= base_url('administrator/faucet-list/coinpot/update/' . $coinpot['id_coinpot']) ?>">
                       <button class="btn btn-primary btn-sm"><i class="fa fa-cogs"></i></button>
                     </a>
                     <a href="<?= base_url('administrator/faucet-list/coinpot/delete/' . $coinpot['id_coinpot']) ?>">

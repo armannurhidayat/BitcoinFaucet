@@ -34,7 +34,7 @@
     <div class="card shadow mb-4">
       <div class="card-header py-3">
         <span class="m-0 font-weight-bold text-primary h3">FaucetHub Faucet</span>
-          <a href="<?= base_url('administrator/faucet-list/faucethub/form_input') ?>" class="btn btn-success btn-icon-split btn-sm float-right">
+          <a href="<?= base_url('administrator/faucet-list/faucethub/update') ?>" class="btn btn-success btn-icon-split btn-sm float-right">
             <span class="icon text-white-50">
               <i class="fas fa-plus"></i>
             </span>
@@ -76,7 +76,7 @@
                     </a>
                   </td>
                   <td align="center">
-                    <a href="<?= base_url('administrator/faucet-list/faucethub/form_edit/' . $faucethub['id_faucethub']) ?>">
+                    <a href="<?= base_url('administrator/faucet-list/faucethub/update/' . $faucethub['id_faucethub']) ?>">
                       <button class="btn btn-primary btn-sm"><i class="fa fa-cogs"></i></button>
                     </a>
                     <a href="<?= base_url('administrator/faucet-list/faucethub/delete/' . $faucethub['id_faucethub']) ?>">

@@ -56,8 +56,10 @@
 	</div>
 
 	<!-- Content -->
-	<div class="container">
-		<h1 class="text-center mt-5">Best Faucet Sites</h1>
+	<div class="container-fluit">
+		<script src="https://widgets.coingecko.com/coingecko-coin-price-marquee-widget.js"></script>
+		<coingecko-coin-price-marquee-widget coin-ids="bitcoin,ethereum,litecoin,ripple,dogecoin,bitcoin-cash,blackcoin" currency="idr" background-color="#ffffff" locale="id"></coingecko-coin-price-marquee-widget>
+	<h1 class="text-center">Best Faucet Sites</h1>
 
 	</div>
 	<!-- /Content -->

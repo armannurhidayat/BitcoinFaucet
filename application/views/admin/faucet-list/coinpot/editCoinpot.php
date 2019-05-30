@@ -8,13 +8,13 @@
     </div>
     
     <div class="card-body">
-      <form method="POST" action="<?= base_url('administrator/faucet-list/coinpot/update') ?>">
+      <form method="POST" action="<?= base_url('administrator/faucet-list/coinpot/update/' . $coinpot['id_coinpot']) ?>">
       	<div class="row">
       		<div class="col-md-5 ml-5">
       			<input type="hidden" name="id_coinpot" id="id_coinpot" value="<?= $coinpot['id_coinpot']?>">
           	<div class="form-group">
 					    <label for="id_coin">Coin Name *</label>
-					    <select name="id_coin" id="id_coin" class="form-control" required="">
+					    <select name="id_coin" id="id_coin" class="form-control">
 					    	<?php foreach ($coins as $coin): ?>
 					    		<?php if ($coin == $coinpot['id_coin']): ?>
 					    			<option value="<?= $coin ?>" selected><?= $coin ?></option>
@@ -26,15 +26,18 @@
 					  </div>
           	<div class="form-group">
 					    <label for="nama">Faucet Name *</label>
-					    <input type="text" class="form-control" id="nama" name="nama" required="" value="<?= $coinpot['nama'] ?>">
+					    <input type="text" class="form-control" id="nama" name="nama" value="<?= $coinpot['nama'] ?>">
+					    <small class="text-danger"><?= form_error('nama') ?></small>
 					  </div>
 					  <div class="form-group">
 					    <label for="timer">Timer Minutes *</label>
-					    <input type="number" class="form-control" id="timer" name="timer" required="" placeholder="1 minutes" value="<?= $coinpot['timer'] ?>">
+					    <input type="number" class="form-control" id="timer" name="timer" placeholder="1 minutes" value="<?= $coinpot['timer'] ?>">
+					    <small class="text-danger"><?= form_error('timer') ?></small>
 					  </div>
 					  <div class="form-group">
 					  	<label for="link">Link *</label>
 					  	<textarea class="form-control" name="link" id="link" style="min-height: 100px;" placeholder="https://link-faucet.com"><?= $coinpot['link'] ?></textarea>
+					  	<small class="text-danger"><?= form_error('link') ?></small>
 					  </div>
 				  </div>
 
@@ -42,10 +45,11 @@
 				  	<div class="form-group">
 					  <label for="payment">Payment *</label>
 					    <input type="text" class="form-control" id="payment" name="payment" value="CoinPot" readonly="">
+					    <small class="text-danger"><?= form_error('payment') ?></small>
 					  </div>
 				  	<div class="form-group">
 					    <label for="status">Status *</label>
-					    <select name="status" id="status" class="form-control" required="">
+					    <select name="status" id="status" class="form-control">
 					    	<?php foreach ($status as $sts): ?>
 					    		<?php if ($sts == $coinpot['status']): ?>
 					    			<option value="<?= $sts ?>" selected><?= ucfirst($sts) ?></option>
@@ -57,7 +61,8 @@
 					  </div>
 					  <div class="form-group">
 					    <label for="withdrawal">Withdrawal *</label>
-					    <input type="number" class="form-control" id="withdrawal" name="withdrawal" required="" placeholder="0.00025000 BTC" value="<?= $coinpot['withdrawal'] ?>">
+					    <input type="number" class="form-control" id="withdrawal" name="withdrawal" placeholder="0.00025000 BTC" value="<?= $coinpot['withdrawal'] ?>">
+					    <small class="text-danger"><?= form_error('withdrawal') ?></small>
 					  </div>
 			  	</div>
 				</div>

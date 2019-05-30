@@ -68,7 +68,7 @@
         <div id="faucetsite" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="<?= base_url('administrator/faucet-list/direct') ?>">Direct</a>
-            <a class="collapse-item" href="<?= base_url('administrator/faucet-list/coinpot') ?>">Coinpot</a>
+            <a class="collapse-item" href="<?= base_url('administrator/faucet-list/coinpot') ?>">CoinPot</a>
             <a class="collapse-item" href="<?= base_url('administrator/faucet-list/faucethub') ?>">FaucetHub</a>
           </div>
         </div>

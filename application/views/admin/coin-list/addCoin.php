@@ -12,6 +12,7 @@
       	<div class="row">
       		<div class="col-md-5 ml-5">
           	<div class="form-group">
+          		<input type="hidden" name="id" id="id" value="<?= $uuid ?>">
 					    <label for="nama_coin">Coin Name *</label>
 					    <input type="text" name="nama_coin" id="nama_coin" class="form-control" autofocus="" value="<?= set_value('nama_coin') ?>" placeholder="Bitcoin">
 					    <small class="form-text text-danger"><?= form_error('nama_coin'); ?></small>

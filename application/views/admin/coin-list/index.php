@@ -34,7 +34,7 @@
     <div class="card shadow mb-4">
       <div class="card-header py-3">
         <span class="m-0 font-weight-bold text-primary h3">Coin List</span>
-          <a href="<?= base_url('administrator/coin_list/form_input')  ?>" class="btn btn-success btn-icon-split btn-sm float-right">
+          <a href="<?= base_url('administrator/coin_list/update')  ?>" class="btn btn-success btn-icon-split btn-sm float-right">
             <span class="icon text-white-50">
               <i class="fas fa-plus"></i>
             </span>
@@ -64,7 +64,7 @@
                   <td><?= strtoupper($coin['code_coin']) ?></td>
                   <td><?= $coin['logo_coin'] ?></td>
                   <td align="center">
-                    <a href="<?= base_url('administrator/coin_list/form_edit/' . $coin['id']) ?>">
+                    <a href="<?= base_url('administrator/coin_list/update/' . $coin['id']) ?>">
                       <button class="btn btn-primary btn-sm"><i class="fa fa-cogs"></i></button>
                     </a>
                     <a href="<?= base_url('administrator/coin_list/delete/' . $coin['id']) ?>">

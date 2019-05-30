@@ -14,11 +14,12 @@
       			<input type="hidden" name="id_direct" id="id_direct" value="<?= $direct['id_direct']?>">
       			<div class="form-group">
 					    <label for="nama">Faucet Name *</label>
-					    <input type="text" class="form-control" id="nama" name="nama" required="" value="<?= $direct['nama'] ?>">
+					    <input type="text" class="form-control" id="nama" name="nama" value="<?= $direct['nama'] ?>">
+					    <small class="text-danger"><?= form_error('nama') ?></small>
 					  </div>
           	<div class="form-group">
 					    <label for="id_coin">Coin Name *</label>
-					    <select name="id_coin" id="id_coin" class="form-control" required="">
+					    <select name="id_coin" id="id_coin" class="form-control">
 					    	<?php foreach ($coins as $coin): ?>
 					    		<?php if ($coin == $direct['id_coin']): ?>
 					    			<option value="<?= $coin ?>" selected><?= $coin ?></option>
@@ -27,14 +28,17 @@
 					    			<?php endif ?>
 					    	<?php endforeach ?>
 					    </select>
+					    <small class="text-danger"><?= form_error('id_coin') ?></small>
 					  </div>
 					  <div class="form-group">
 					    <label for="timer">Timer Minutes *</label>
-					    <input type="number" class="form-control" id="timer" name="timer" max="99" required="" placeholder="1 minutes" value="<?= $direct['timer'] ?>">
+					    <input type="number" class="form-control" id="timer" name="timer" placeholder="1 minutes" value="<?= $direct['timer'] ?>">
+					    <small class="text-danger"><?= form_error('timer') ?></small>
 					  </div>
 					  <div class="form-group">
 					  	<label for="link">Link *</label>
 					  	<textarea class="form-control" name="link" id="link" style="min-height: 100px;" placeholder="https://link-faucet.com"><?= $direct['link'] ?></textarea>
+					  	<small class="text-danger"><?= form_error('link') ?></small>
 					  </div>
 				  </div>
 
@@ -45,7 +49,7 @@
 					  </div>
 				  	<div class="form-group">
 					    <label for="status">Status *</label>
-					    <select name="status" id="status" class="form-control" required="">
+					    <select name="status" id="status" class="form-control">
 					    	<?php foreach ($status as $sts): ?>
 					    		<?php if ($sts == $direct['status']): ?>
 					    			<option value="<?= $sts ?>" selected><?= ucfirst($sts) ?></option>
@@ -54,10 +58,12 @@
 					    			<?php endif ?>
 					    	<?php endforeach ?>
 					    </select>
+					    <small class="text-danger"><?= form_error('status') ?></small>
 					  </div>
 					  <div class="form-group">
 					    <label for="withdrawal">Withdrawal *</label>
-					    <input type="number" class="form-control" id="withdrawal" name="withdrawal" required="" placeholder="0.00025000 BTC" value="<?= $direct['withdrawal'] ?>">
+					    <input type="number" class="form-control" id="withdrawal" name="withdrawal" placeholder="0.00025000 BTC" value="<?= $direct['withdrawal'] ?>">
+					    <small class="text-danger"><?= form_error('withdrawal') ?></small>
 					  </div>
 			  	</div>
 				</div>

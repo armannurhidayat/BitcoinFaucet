@@ -8,26 +8,26 @@
     </div>
     
     <div class="card-body">
-      <form method="POST" enctype="multipart/form-data" action="<?= base_url('administrator/coin_list/update') ?>">
+      <form method="POST" enctype="multipart/form-data" action="<?= base_url('administrator/coin_list/update/' . $coins['id']) ?>">
       	<div class="row">
       		<div class="col-md-5 ml-5">
       			<input type="hidden" name="id" id="id" value="<?= $coins['id'] ?>">
           	<div class="form-group">
 					    <label for="nama_coin">Coin Name *</label>
-					    <input type="text" name="nama_coin" id="nama_coin" class="form-control" required="" value="<?= $coins['nama_coin'] ?>">
+					    <input type="text" name="nama_coin" id="nama_coin" class="form-control" value="<?= $coins['nama_coin'] ?>">
+					    <small class="form-text text-danger"><?= form_error('nama_coin'); ?></small>
 					  </div>
 					  <div class="form-group">
 					    <label for="logo_coin">Logo Coin</label>
 					    <input type="file" name="logo_coin" id="logo_coin" class="form-control-file">
 					    <p class="text-danger">* file type format PNG/JPG/JPEG</p>
 					  </div>
-
 				  </div>
 
 				  <div class="col-md-5">
 				  	<div class="form-group">
 					  <label for="code_coin">Code Coin *</label>
-					    <input type="text" class="form-control" id="code_coin" name="code_coin" value="<?= $coins['code_coin'] ?>" required="">
+					    <input type="text" class="form-control" id="code_coin" name="code_coin" value="<?= $coins['code_coin'] ?>">
 					  </div>
 			  	</div>
 				</div>

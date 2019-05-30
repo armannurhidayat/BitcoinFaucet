@@ -10,9 +10,11 @@ class M_Database extends CI_Model {
 
 	public function insertCoin() {
 		$data = [
+			'id'=>$this->input->post('id'),
 			'nama_coin'=> strtolower($this->input->post('nama_coin', TRUE)),
 			'code_coin'=> strtolower($this->input->post('code_coin', TRUE))
 		];
+
 		$this->db->insert('coin_list', $data);
 	}
 
@@ -24,10 +26,19 @@ class M_Database extends CI_Model {
 		return $this->db->get_where('coin_list', ['id' => $id])->row_array();
 	}
 
-	public function updateCoin($data,$where,$table) {
-		$this->db->where($where);
-		$this->db->update($table,$data);
+	public function updateCoin($data) {
+		$data = [
+			'nama_coin'=> $this->input->post('nama_coin', TRUE),
+			'code_coin'=> $this->input->post('code_coin', TRUE)
+		];
+
+		$where = [
+			'id'=> $this->input->post('id', TRUE)
+		];
+
+		$this->db->where($where)->update('coin_list',$data);
 	}
+
 	
 	// >DIRECT
 	public function selectDirect() {
@@ -36,6 +47,17 @@ class M_Database extends CI_Model {
 	}
 
 	public function insertDirect($data) {
+		$data= [
+			'id_direct' =>$this->input->post('id_direct', TRUE),
+			'nama'=> strtolower($this->input->post('nama', TRUE)),
+			'id_coin'=> strtolower($this->input->post('id_coin', TRUE)),
+			'timer'=> strtolower($this->input->post('timer', TRUE)),
+			'link'=> strtolower($this->input->post('link', TRUE)),
+			'status'=> strtolower($this->input->post('status', TRUE)),
+			'payment'=> $this->input->post('payment', TRUE),
+			'withdrawal'=> strtolower($this->input->post('withdrawal', TRUE))
+		];
+
 		$this->db->insert('direct', $data);
 	}
 
@@ -47,11 +69,25 @@ class M_Database extends CI_Model {
 		return $this->db->get_where('direct', ['id_direct' => $id])->row_array();
 	}
 
-	public function updateDirect($data,$where,$table) {
-		$this->db->where($where);
-		$this->db->update($table,$data);
+	public function updateDirect($data) {
+		$data=[
+			'nama'=> strtolower($this->input->post('nama', TRUE)),
+			'id_coin'=> strtolower($this->input->post('id_coin', TRUE)),
+			'timer'=> strtolower($this->input->post('timer', TRUE)),
+			'link'=> strtolower($this->input->post('link', TRUE)),
+			'status'=> strtolower($this->input->post('status', TRUE)),
+			'payment'=> $this->input->post('payment', TRUE),
+			'withdrawal'=> strtolower($this->input->post('withdrawal', TRUE))
+		];
+
+		$where=[
+			'id_direct'=>$this->input->post('id_direct', TRUE)
+		];
+		
+		$this->db->where($where)->update('direct',$data);
 	}
 
+	
 	// >COINPOT
 	public function selectCoinpot() {
 		$this->db->join('coin_list','coin_list.id = coinpot.id_coin', 'LEFT');
@@ -59,6 +95,17 @@ class M_Database extends CI_Model {
 	}
 
 	public function insertCoinpot($data) {
+		$data=[
+			'id_coinpot'=> $this->input->post('id_coinpot', TRUE),
+			'nama'=> strtolower($this->input->post('nama', TRUE)),
+			'id_coin'=> strtolower($this->input->post('id_coin', TRUE)),
+			'timer'=> strtolower($this->input->post('timer', TRUE)),
+			'link'=> strtolower($this->input->post('link', TRUE)),
+			'status'=> strtolower($this->input->post('status', TRUE)),
+			'payment'=> $this->input->post('payment', TRUE),
+			'withdrawal'=> strtolower($this->input->post('withdrawal', TRUE))
+		];
+
 		$this->db->insert('coinpot', $data);
 	}
 
@@ -70,11 +117,25 @@ class M_Database extends CI_Model {
 		return $this->db->get_where('coinpot', ['id_coinpot' => $id])->row_array();
 	}
 
-	public function updateCoinpot($data,$where,$table) {
-		$this->db->where($where);
-		$this->db->update($table,$data);
+	public function updateCoinpot($data) {
+		$data=[
+			'nama'=> strtolower($this->input->post('nama', TRUE)),
+			'id_coin'=> strtolower($this->input->post('id_coin', TRUE)),
+			'timer'=> strtolower($this->input->post('timer', TRUE)),
+			'link'=> strtolower($this->input->post('link', TRUE)),
+			'status'=> strtolower($this->input->post('status', TRUE)),
+			'payment'=> $this->input->post('payment', TRUE),
+			'withdrawal'=> strtolower($this->input->post('withdrawal', TRUE))
+		];
+
+		$where=[
+			'id_coinpot'=>$this->input->post('id_coinpot', TRUE)
+		];
+
+		$this->db->where($where)->update('coinpot',$data);
 	}
 
+	
 	// >FAUCETHUB
 	public function selectFaucethub() {
 		$this->db->join('coin_list','coin_list.id = faucethub.id_coin', 'LEFT');
@@ -93,13 +154,8 @@ class M_Database extends CI_Model {
 		return $this->db->get_where('faucethub', ['id_faucethub' => $id])->row_array();
 	}
 
-	public function updateFaucethub($data,$where,$table) {
-		$this->db->where($where);
-		$this->db->update($table,$data);
+	public function updateFaucethub($data) {
+		$this->db->where($where)->update('faucethub',$data);
 	}
-
-	
-
-
 
 }

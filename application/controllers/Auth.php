@@ -30,7 +30,7 @@ class Auth extends CI_Controller {
 			}
 
 			if (! $this->session->logged_in) {
-				redirect('login');
+				redirect('auth/login');
 			}
 	}
 

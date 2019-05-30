@@ -13,24 +13,29 @@
       		<div class="col-md-5 ml-5">
       			<div class="form-group">
 					    <label for="nama">Faucet Name *</label>
-					    <input type="text" class="form-control" id="nama" name="nama" required="" autofocus="">
+					    <input type="hidden" id="id_direct" name="id_direct" value="<?= $uuid ?>">
+					    <input type="text" class="form-control" id="nama" name="nama" autofocus="" value="<?= set_value('nama') ?>">
+					    <small class="text-danger"><?= form_error('nama') ?></small>
 					  </div>
           	<div class="form-group">
 					    <label for="coin">Coin Name *</label>
-					    <select name="id_coin" id="id_coin" class="form-control" required="">
+					    <select name="id_coin" id="id_coin" class="form-control">
 					    	<option value="">- Select -</option>
 					    	<?php foreach ($coins as $coin): ?>
 					    		<option value="<?= $coin['id'] ?>"><?= strtoupper($coin['code_coin']) ?></option>
 						    <?php endforeach ?>
 					    </select>
+					    <small class="text-danger"><?= form_error('id_coin') ?></small>
 					  </div>
 					  <div class="form-group">
 					    <label for="timer">Timer Minutes *</label>
-					    <input type="number" class="form-control" id="timer" name="timer" max="99" required="" placeholder="1 minutes">
+					    <input type="number" class="form-control" id="timer" name="timer" max="99" placeholder="1 minutes" value="<?= set_value('timer') ?>">
+					    <small class="text-danger"><?= form_error('timer') ?></small>
 					  </div>
 					  <div class="form-group">
 					  	<label for="link">Link *</label>
-					  	<textarea class="form-control" name="link" id="link" style="min-height: 100px;" placeholder="https://link-faucet.com"></textarea>
+					  	<textarea class="form-control" name="link" id="link" style="min-height: 100px;" placeholder="https://link-faucet.com"><?= set_value('link') ?></textarea>
+					  	<small class="text-danger"><?= form_error('link') ?></small>
 					  </div>
 				  </div>
 
@@ -41,15 +46,17 @@
 					  </div>
 				  	<div class="form-group">
 					    <label for="status">Status *</label>
-					    <select name="status" id="status" class="form-control" required="">
+					    <select name="status" id="status" class="form-control">
 					    	<option value="">- Select -</option>
-					    	<option value="legit">Legit</option>
-					    	<option value="testing">Testing</option>
+					    	<option value="legit" <?= set_select('status', 'legit') ?>>Legit</option>
+					    	<option value="testing" <?= set_select('status', 'testing') ?>>Testing</option>
 					    </select>
+					    <small class="text-danger"><?= form_error('status') ?></small>
 					  </div>
 					  <div class="form-group">
 					    <label for="withdrawal">Withdrawal *</label>
-					    <input type="number" class="form-control" id="withdrawal" name="withdrawal" required="" placeholder="0.00025000 BTC">
+					    <input type="number" class="form-control" id="withdrawal" name="withdrawal" placeholder="0.00025000 BTC" value="<?= set_value('withdrawal') ?>">
+					    <small class="text-danger"><?= form_error('withdrawal') ?></small>
 					  </div>
 			  	</div>
 				</div>
