@@ -59,9 +59,7 @@
             </thead>
 
             <tbody>
-                <?php
-                $no = 1;
-                foreach ($direct as $direct) { ?>
+              <?php $no = 1; foreach ($direct as $direct) : ?>
                 <tr>
                   <td align="center"><?= $no++.'.' ?></td>
                   <td><?= ucfirst($direct['status']) ?></td>
@@ -84,7 +82,7 @@
                     </a>
                   </td>
                 </tr>
-                <?php } ?>
+                <?php endforeach; ?>
             </tbody>
           </table>
         </div>

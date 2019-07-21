@@ -13,32 +13,42 @@ class Auth extends CI_Controller {
 
 	public function proses_login() {
 		if(isset($_POST['login'])) {
-			$user = $this->input->post('username',true);
-			$pass = sha1($this->input->post('password',true));
-			$cek = $this->M_Auth->cekUsername($user,$pass);
-			$hasil = count($cek);
+			$user = $this->input->post('username', true);
+			$pass = $this->input->post('password');
 			
-			if ($hasil > 0) {
-				$session['logged_in'] = TRUE;
-				$this->session->set_userdata($session);
-				$this->session->set_flashdata('login', 'LoginBerhasil');
+			$cek = $this->db->get_where('user', ['username' => $user])->row_array();
+			
+			//jika username ada
+			if ($cek) {
+				//jika username ada cek password
+				if (password_verify($pass, $cek['password'])) {
+					$session['logged_in'] = TRUE;
+					$this->session->set_userdata($session);
+					$this->session->set_flashdata('login', 'LoginBerhasil');
 					redirect('administrator/homepage');
-				} else {
-					$this->session->set_flashdata('gagal', 'LoginBerhasil');
-					redirect('auth/login');
-				}
-			}
 
-			if (! $this->session->logged_in) {
-				redirect('auth/login');
+				} else {
+
+					$this->session->set_flashdata('gagal', 'LoginBerhasil');
+					redirect('administrator');
+				}
+
+			} else {
+
+				$this->session->set_flashdata('gagal', 'LoginBerhasil');
+				redirect('administrator');
 			}
+		}
+
+		if (! $this->session->logged_in) {
+			redirect('administrator');
+		}
 	}
 
 
 	public function logout() {
 		$this->session->sess_destroy();
-		redirect('auth/login');
+		redirect('administrator');
 	}
-
 
 }

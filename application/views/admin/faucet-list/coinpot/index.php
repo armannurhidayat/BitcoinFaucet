@@ -34,7 +34,7 @@
     <div class="card shadow mb-4">
       <div class="card-header py-3">
         <span class="m-0 font-weight-bold text-primary h3">CoinPot Faucet</span>
-          <a href="<?= base_url('administrator/faucet-list/coinpot/form_input') ?>" class="btn btn-success btn-icon-split btn-sm float-right">
+          <a href="<?= base_url('administrator/faucet-list/coinpot/add') ?>" class="btn btn-success btn-icon-split btn-sm float-right">
             <span class="icon text-white-50">
               <i class="fas fa-plus"></i>
             </span>

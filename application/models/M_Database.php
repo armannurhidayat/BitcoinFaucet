@@ -3,16 +3,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class M_Database extends CI_Model {
 
+
 	// >COIN LIST
 	public function selectCoin() {
 		return $this->db->get('coin_list');
 	}
 
-	public function insertCoin() {
+	public function insertCoin($logo) {
 		$data = [
-			'id'=>$this->input->post('id'),
-			'nama_coin'=> strtolower($this->input->post('nama_coin', TRUE)),
-			'code_coin'=> strtolower($this->input->post('code_coin', TRUE))
+			'id'		=> htmlspecialchars($this->input->post('id', TRUE)),
+			'nama_coin'	=> htmlspecialchars($this->input->post('nama_coin', TRUE)),
+			'code_coin'	=> htmlspecialchars($this->input->post('code_coin', TRUE)),
+			'logo_coin'	=> $logo
 		];
 
 		$this->db->insert('coin_list', $data);
@@ -22,40 +24,23 @@ class M_Database extends CI_Model {
 		$this->db->delete('coin_list', ['id' => $id]);
 	}
 
-	public function editCoin($id) {
-		return $this->db->get_where('coin_list', ['id' => $id])->row_array();
-	}
-
-	public function updateCoin($data) {
-		$data = [
-			'nama_coin'=> $this->input->post('nama_coin', TRUE),
-			'code_coin'=> $this->input->post('code_coin', TRUE)
-		];
-
-		$where = [
-			'id'=> $this->input->post('id', TRUE)
-		];
-
-		$this->db->where($where)->update('coin_list',$data);
-	}
-
 	
 	// >DIRECT
 	public function selectDirect() {
-		$this->db->join('coin_list','coin_list.id = direct.id_coin', 'LEFT');
+		$this->db->join('coin_list', 'coin_list.id = direct.id_coin', 'LEFT');
 		return $this->db->get('direct');
 	}
 
 	public function insertDirect($data) {
-		$data= [
-			'id_direct' =>$this->input->post('id_direct', TRUE),
-			'nama'=> strtolower($this->input->post('nama', TRUE)),
-			'id_coin'=> strtolower($this->input->post('id_coin', TRUE)),
-			'timer'=> strtolower($this->input->post('timer', TRUE)),
-			'link'=> strtolower($this->input->post('link', TRUE)),
-			'status'=> strtolower($this->input->post('status', TRUE)),
-			'payment'=> $this->input->post('payment', TRUE),
-			'withdrawal'=> strtolower($this->input->post('withdrawal', TRUE))
+		$data = [
+			'id_direct'		=> htmlspecialchars($this->input->post('id_direct', TRUE)),
+			'nama'			=> htmlspecialchars($this->input->post('nama', TRUE)),
+			'id_coin'		=> htmlspecialchars($this->input->post('id_coin', TRUE)),
+			'timer'			=> htmlspecialchars($this->input->post('timer', TRUE)),
+			'link'			=> htmlspecialchars($this->input->post('link', TRUE)),
+			'status'		=> htmlspecialchars($this->input->post('status', TRUE)),
+			'payment'		=> htmlspecialchars($this->input->post('payment', TRUE)),
+			'withdrawal'	=> htmlspecialchars($this->input->post('withdrawal', TRUE))
 		];
 
 		$this->db->insert('direct', $data);
@@ -69,41 +54,41 @@ class M_Database extends CI_Model {
 		return $this->db->get_where('direct', ['id_direct' => $id])->row_array();
 	}
 
-	public function updateDirect($data) {
-		$data=[
-			'nama'=> strtolower($this->input->post('nama', TRUE)),
-			'id_coin'=> strtolower($this->input->post('id_coin', TRUE)),
-			'timer'=> strtolower($this->input->post('timer', TRUE)),
-			'link'=> strtolower($this->input->post('link', TRUE)),
-			'status'=> strtolower($this->input->post('status', TRUE)),
-			'payment'=> $this->input->post('payment', TRUE),
-			'withdrawal'=> strtolower($this->input->post('withdrawal', TRUE))
+	public function updateDirect() {
+		$data = [
+			'nama'			=> htmlspecialchars($this->input->post('nama', TRUE)),
+			'id_coin'		=> htmlspecialchars($this->input->post('id_coin', TRUE)),
+			'timer'			=> htmlspecialchars($this->input->post('timer', TRUE)),
+			'link'			=> htmlspecialchars($this->input->post('link', TRUE)),
+			'status'		=> htmlspecialchars($this->input->post('status', TRUE)),
+			'payment'		=> htmlspecialchars($this->input->post('payment', TRUE)),
+			'withdrawal'	=> htmlspecialchars($this->input->post('withdrawal', TRUE))
 		];
 
-		$where=[
-			'id_direct'=>$this->input->post('id_direct', TRUE)
+		$where = [
+			'id_direct'		=> $this->input->post('id_direct', TRUE)
 		];
 		
-		$this->db->where($where)->update('direct',$data);
+		$this->db->where($where)->update('direct', $data);
 	}
 
 	
 	// >COINPOT
 	public function selectCoinpot() {
-		$this->db->join('coin_list','coin_list.id = coinpot.id_coin', 'LEFT');
+		$this->db->join('coin_list', 'coin_list.id = coinpot.id_coin', 'LEFT');
 		return $this->db->get('coinpot');
 	}
 
 	public function insertCoinpot($data) {
-		$data=[
-			'id_coinpot'=> $this->input->post('id_coinpot', TRUE),
-			'nama'=> strtolower($this->input->post('nama', TRUE)),
-			'id_coin'=> strtolower($this->input->post('id_coin', TRUE)),
-			'timer'=> strtolower($this->input->post('timer', TRUE)),
-			'link'=> strtolower($this->input->post('link', TRUE)),
-			'status'=> strtolower($this->input->post('status', TRUE)),
-			'payment'=> $this->input->post('payment', TRUE),
-			'withdrawal'=> strtolower($this->input->post('withdrawal', TRUE))
+		$data = [
+			'id_coinpot'	=> htmlspecialchars($this->input->post('id_coinpot', TRUE)),
+			'nama'			=> htmlspecialchars($this->input->post('nama', TRUE)),
+			'id_coin'		=> htmlspecialchars($this->input->post('id_coin', TRUE)),
+			'timer'			=> htmlspecialchars($this->input->post('timer', TRUE)),
+			'link'			=> htmlspecialchars($this->input->post('link', TRUE)),
+			'status'		=> htmlspecialchars($this->input->post('status', TRUE)),
+			'payment'		=> htmlspecialchars($this->input->post('payment', TRUE)),
+			'withdrawal'	=> htmlspecialchars($this->input->post('withdrawal', TRUE))
 		];
 
 		$this->db->insert('coinpot', $data);
@@ -117,19 +102,19 @@ class M_Database extends CI_Model {
 		return $this->db->get_where('coinpot', ['id_coinpot' => $id])->row_array();
 	}
 
-	public function updateCoinpot($data) {
-		$data=[
-			'nama'=> strtolower($this->input->post('nama', TRUE)),
-			'id_coin'=> strtolower($this->input->post('id_coin', TRUE)),
-			'timer'=> strtolower($this->input->post('timer', TRUE)),
-			'link'=> strtolower($this->input->post('link', TRUE)),
-			'status'=> strtolower($this->input->post('status', TRUE)),
-			'payment'=> $this->input->post('payment', TRUE),
-			'withdrawal'=> strtolower($this->input->post('withdrawal', TRUE))
+	public function updateCoinpot() {
+		$data = [
+			'nama'			=> htmlspecialchars($this->input->post('nama', TRUE)),
+			'id_coin'		=> htmlspecialchars($this->input->post('id_coin', TRUE)),
+			'timer'			=> htmlspecialchars($this->input->post('timer', TRUE)),
+			'link'			=> htmlspecialchars($this->input->post('link', TRUE)),
+			'status'		=> htmlspecialchars($this->input->post('status', TRUE)),
+			'payment'		=> htmlspecialchars($this->input->post('payment', TRUE)),
+			'withdrawal'	=> htmlspecialchars($this->input->post('withdrawal', TRUE))
 		];
 
-		$where=[
-			'id_coinpot'=>$this->input->post('id_coinpot', TRUE)
+		$where = [
+			'id_coinpot'	=> $this->input->post('id_coinpot', TRUE)
 		];
 
 		$this->db->where($where)->update('coinpot',$data);
@@ -138,11 +123,22 @@ class M_Database extends CI_Model {
 	
 	// >FAUCETHUB
 	public function selectFaucethub() {
-		$this->db->join('coin_list','coin_list.id = faucethub.id_coin', 'LEFT');
+		$this->db->join('coin_list', 'coin_list.id = faucethub.id_coin', 'LEFT');
 		return $this->db->get('faucethub');
 	}
 
-	public function insertFaucethub($data) {
+	public function insertFaucethub() {
+		$data = [
+			'id_faucethub'	=> htmlspecialchars($this->input->post('id_faucethub', TRUE)),
+			'nama'			=> htmlspecialchars($this->input->post('nama', TRUE)),
+			'id_coin'		=> htmlspecialchars($this->input->post('id_coin', TRUE)),
+			'timer'			=> htmlspecialchars($this->input->post('timer', TRUE)),
+			'link'			=> htmlspecialchars($this->input->post('link', TRUE)),
+			'status'		=> htmlspecialchars($this->input->post('status', TRUE)),
+			'payment'		=> htmlspecialchars($this->input->post('payment', TRUE)),
+			'withdrawal'	=> htmlspecialchars($this->input->post('withdrawal', TRUE))
+		];
+
 		$this->db->insert('faucethub', $data);
 	}
 
@@ -154,8 +150,22 @@ class M_Database extends CI_Model {
 		return $this->db->get_where('faucethub', ['id_faucethub' => $id])->row_array();
 	}
 
-	public function updateFaucethub($data) {
-		$this->db->where($where)->update('faucethub',$data);
+	public function updateFaucethub() {
+		$data = [
+			'nama'			=> htmlspecialchars($this->input->post('nama', TRUE)),
+			'id_coin'		=> htmlspecialchars($this->input->post('id_coin', TRUE)),
+			'timer'			=> htmlspecialchars($this->input->post('timer', TRUE)),
+			'link'			=> htmlspecialchars($this->input->post('link', TRUE)),
+			'status'		=> htmlspecialchars($this->input->post('status', TRUE)),
+			'payment'		=> htmlspecialchars($this->input->post('payment', TRUE)),
+			'withdrawal'	=> htmlspecialchars($this->input->post('withdrawal', TRUE))
+		];
+
+		$where = [
+			'id_faucethub'	=> $this->input->post('id_faucethub', TRUE)
+		];
+
+		$this->db->where($where)->update('faucethub', $data);
 	}
 
 }

@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Bitcoin Faucet</title>
+  <title>Login | Bitcoin Faucet</title>
 
   <!-- Custom fonts for this template-->
   <link href="<?= base_url('assets') ?>/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -27,24 +27,24 @@
     <!-- Outer Row -->
     <div class="row justify-content-center">
 
-      <div class="col-xl-10 col-lg-12 col-md-9">
+      <div class="col-lg-6">
 
-        <div class="card o-hidden border-0 shadow-lg my-5">
+        <div class="card o-hidden border-0 shadow-lg mt-5">
           <div class="card-body p-0">
             <!-- Nested Row within Card Body -->
             <div class="row">
-              <div class="col-md-6">
+              <div class="col-lg">
                 <div class="p-5">
                   <div class="text-center">
-                    <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                    <h1 class="h4 text-gray-900 mb-4">Login Page Admin</h1>
                   </div>
                   
                   <!-- Pesan Alert -->
-						        <?php if ($this->session->flashdata('gagal') ) : ?>
-						        <div class="alert alert-danger">
-						        	<i class="fa fa-exclamation-circle"></i> Invalid username or password.
-						        </div>
-						        <?php endif ?>
+					        <?php if ($this->session->flashdata('gagal') ) : ?>
+					        <div class="alert alert-danger">
+					        	<i class="fa fa-exclamation-circle"></i> Invalid username or password.
+					        </div>
+					        <?php endif ?>
 					        <!-- /Pesan Alert -->
 
                   <form class="user" method="POST" action="<?= base_url('auth/proses_login') ?>">

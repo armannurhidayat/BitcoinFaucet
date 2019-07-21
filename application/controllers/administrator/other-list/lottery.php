@@ -7,7 +7,7 @@ class Lottery extends CI_Controller {
 		parent::__construct();
 
 		if (! $this->session->logged_in) {
-			redirect('auth/login');
+			redirect('administrator');
 		}
 	}
 

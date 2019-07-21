@@ -56,9 +56,9 @@
 
       <!-- Faucet Site -->
       <hr class="sidebar-divider">
-      <!-- <div class="sidebar-heading">
+      <div class="sidebar-heading">
         Faucet Site
-      </div> -->
+      </div>
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#faucetsite" aria-expanded="true" aria-controls="collapseTwo">
