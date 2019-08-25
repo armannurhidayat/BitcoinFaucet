@@ -11,9 +11,9 @@
       </div>
     <?php endif ?>
 
-    <?php if ($this->session->flashdata('update')): ?>
+    <?php if ($this->session->flashdata('error')): ?>
       <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <strong>Coin Faucet</strong> Update successfully.
+        <strong>Coin Faucet</strong> Error Deleted.
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -62,7 +62,9 @@
                   <td><?= $no++ . '.' ?></td>
                   <td><?= ucwords($coin['nama_coin']) ?></td>
                   <td><?= strtoupper($coin['code_coin']) ?></td>
-                  <td><?= $coin['logo_coin'] ?></td>
+                  <td align="center">
+                    <img style="height: auto; width: 40px" src="<?= base_url('assets/img/logocoin/'). $coin['logo_coin'] ?>">
+                  </td>
                   <td align="center">
                     <a href="<?= base_url('administrator/coin_list/delete/' . $coin['id']) ?>">
                       <button class="btn btn-danger btn-sm" onclick="return confirm('Are you sure want to delete this data?')"><i class="fa fa-trash"></i></button>

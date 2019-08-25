@@ -54,7 +54,7 @@
                 <th>Timer</th>
                 <th>Withdrawal</th>
                 <th>Link</th>
-                <th>Aksi</th>
+                <th>Action</th>
               </tr>
             </thead>
 

@@ -8,7 +8,8 @@ class Homepage extends CI_Controller {
 	}
 
 	public function index() {
-		$data['title'] = 'Bitcoin Faucet';
+		$data['title']	= 'Bitcoin Faucet';
+		$data['meta']	= 'Bitcoin Faucet';
 
 		$this->load->view('page/template/__header', $data);
 		$this->load->view('page/homepage');

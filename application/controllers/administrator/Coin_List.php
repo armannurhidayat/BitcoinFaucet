@@ -25,7 +25,7 @@ class Coin_List extends CI_Controller {
 
 		$config['upload_path']		= './assets/img/logocoin/';
         $config['allowed_types']	= 'jpeg|jpg|png';
-        $config['encrypt_name']		= TRUE;
+        $config['file_name']		= 'Coin-' . substr(md5(rand()), 0,10);
         
         $this->load->library('upload', $config);
 
@@ -35,8 +35,7 @@ class Coin_List extends CI_Controller {
 			$this->load->view('admin/template/__nav');
 			$this->load->view('admin/coin-list/addCoin',$data);
 			$this->load->view('admin/template/__footer');
-
-        } 
+        }
 
 			if (! $this->upload->do_upload('logo_coin')) {
 				$data['uuid'] = $this->uuid->v4();
@@ -57,10 +56,28 @@ class Coin_List extends CI_Controller {
 		
 	}
 
-	public function delete($id) {
-		$this->M_Database->deleteCoin($id);
-		$this->session->set_flashdata('delete', 'deletCoin');
-		redirect('administrator/coin_list');
+	public function delete() {
+		$id   = $this->uri->segment(4);
+		$data = $this->M_Database->getDataIcon($id);
+		$icon = 'assets/img/logocoin/' . $data->logo_coin;
+		
+
+		if (empty($id)) {
+			redirect('administrator/coin_list');
+
+		} else {
+
+			if (is_readable($icon) && unlink($icon)) {
+				$this->M_Database->deleteCoin($id);
+				$this->session->set_flashdata('delete', 'Delete Coin');
+				redirect('administrator/coin_list');
+
+			} else {
+
+				$this->session->set_flashdata('error', 'Error Delete Coin');
+				redirect('administrator/coin_list');
+			}
+		}
 	}
 
 }

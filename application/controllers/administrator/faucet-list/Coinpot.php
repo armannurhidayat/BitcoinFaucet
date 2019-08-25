@@ -12,7 +12,7 @@ class Coinpot extends CI_Controller {
 	}
 
 	public function index() {
-		$data['coinpot']= $this->M_Database->selectCoinpot()->result_array();
+		$data['coinpot'] = $this->M_Database->selectCoinpot()->result_array();
 		$this->load->view('admin/template/__header');
 		$this->load->view('admin/template/__nav');
 		$this->load->view('admin/faucet-list/coinpot/index',$data);

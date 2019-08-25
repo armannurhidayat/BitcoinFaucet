@@ -9,8 +9,8 @@ class M_Database extends CI_Model {
 		return $this->db->get('coin_list');
 	}
 
-	public function insertCoin($logo) {
-		$data = [
+	public function insertCoin($data, $logo) {
+		$data =[
 			'id'		=> htmlspecialchars($this->input->post('id', TRUE)),
 			'nama_coin'	=> htmlspecialchars($this->input->post('nama_coin', TRUE)),
 			'code_coin'	=> htmlspecialchars($this->input->post('code_coin', TRUE)),
@@ -22,6 +22,10 @@ class M_Database extends CI_Model {
 
 	public function deleteCoin($id) {
 		$this->db->delete('coin_list', ['id' => $id]);
+	}
+
+	public function getDataIcon($id) {
+		return $this->db->get_where('coin_list', ['id' => $id])->row();
 	}
 
 	
@@ -166,6 +170,54 @@ class M_Database extends CI_Model {
 		];
 
 		$this->db->where($where)->update('faucethub', $data);
+	}
+
+
+	// >PTC
+	public function selectPTC() {
+		$this->db->join('coin_list', 'coin_list.id = ptc.id_coin', 'LEFT');
+		return $this->db->get('ptc');
+	}
+
+	public function insertPTC() {
+		$data = [
+			'id_ptc'		=> htmlspecialchars($this->input->post('id_ptc', TRUE)),
+			'nama'			=> htmlspecialchars($this->input->post('nama', TRUE)),
+			'id_coin'		=> htmlspecialchars($this->input->post('id_coin', TRUE)),
+			'link'			=> htmlspecialchars($this->input->post('link', TRUE)),
+			'status'		=> htmlspecialchars($this->input->post('status', TRUE)),
+			'payment'		=> htmlspecialchars($this->input->post('payment', TRUE)),
+			'type'			=> htmlspecialchars($this->input->post('type', TRUE)),
+			'withdrawal'	=> htmlspecialchars($this->input->post('withdrawal', TRUE))
+		];
+
+		$this->db->insert('ptc', $data);
+	}
+
+	public function editPTC($id) {
+		return $this->db->get_where('ptc', ['id_ptc' => $id])->row_array();
+	}
+
+	public function updatePTC() {
+		$data = [
+			'nama'			=> htmlspecialchars($this->input->post('nama', TRUE)),
+			'id_coin'		=> htmlspecialchars($this->input->post('id_coin', TRUE)),
+			'link'			=> htmlspecialchars($this->input->post('link', TRUE)),
+			'status'		=> htmlspecialchars($this->input->post('status', TRUE)),
+			'payment'		=> htmlspecialchars($this->input->post('payment', TRUE)),
+			'type'			=> htmlspecialchars($this->input->post('type', TRUE)),
+			'withdrawal'	=> htmlspecialchars($this->input->post('withdrawal', TRUE))
+		];
+		
+		$where = [
+			'id_ptc'		=> $this->input->post('id_ptc', TRUE),
+		];
+
+		$this->db->where($where)->update('ptc', $data);
+	}
+
+	public function deletePTC($id) {
+		$this->db->delete('ptc', ['id_ptc' => $id]);
 	}
 
 }

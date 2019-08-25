@@ -8,6 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://bestfaucetsites.com/favicon-32x32.png">
 
   <title>Bitcoin Faucet</title>
 
@@ -77,6 +78,9 @@
 
       <!-- Other Site -->
       <hr class="sidebar-divider">
+      <div class="sidebar-heading">
+        Other Site
+      </div>
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#othersite" aria-expanded="true" aria-controls="collapseTwo">

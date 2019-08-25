@@ -6,8 +6,22 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
+  <meta name="author" content="Arman Nur Hidayat">
+  <meta name="description" content="List of best and highest paying <?= $meta ?>">
+  <link rel="canonical" href="<?= base_url() ?>">
+  <meta property="og:url" content="<?= base_url() ?>">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Bitcoin (BTC) Direct Faucets">
+  <meta property="og:site_name" content="<?= base_url() ?>">
+  <meta property="og:description" content="List of best and highest paying <?= $meta ?>">
+  <meta property="og:image" content="https://bestfaucetsites.com/android-chrome-512x512.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@bitcoinfaucet">
+  <meta name="twitter:creator" content="@bitcoinfaucet">
+  <meta name="twitter:title" content="<?= $meta ?>">
+  <meta name="twitter:image" content="https://bestfaucetsites.com/android-chrome-512x512.png">
+  <meta name="twitter:description" content="List of best and highest paying <?= $meta ?>">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://bestfaucetsites.com/favicon-32x32.png">
 
   <title> <?= $title ?> </title>
 
@@ -27,7 +41,7 @@
   <div class="container-fluit">
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
       <div class="container">
-        <a class="navbar-brand active" href="<?= base_url() ?>">BitcoinFaucet.com</a>
+        <a class="navbar-brand" href="<?= base_url() ?>">BitcoinFaucet.com</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>

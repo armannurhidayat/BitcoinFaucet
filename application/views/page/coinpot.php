@@ -9,10 +9,9 @@
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
           <thead>
             <tr>
-              <th>No</th>
               <th>Status</th>
-              <th>Name</th>
-              <th>Coin</th>
+              <th>Faucet Name</th>
+              <th>Coin Name</th>
               <th>Payment</th>
               <th>Timer</th>
               <th>Withdrawal</th>
@@ -21,9 +20,8 @@
           </thead>
 
           <tbody>
-            <?php $no = 1; foreach ($coinpot as $value) : ?>
+            <?php foreach ($coinpot as $value) : ?>
             <tr>
-              <td align="center"><?= $no++.'.' ?></td>
               <td><?= ucfirst($value['status']) ?></td>
               <td><?= ucfirst($value['nama']) ?></td>
               <td><?= strtoupper($value['code_coin']) ?></td>
